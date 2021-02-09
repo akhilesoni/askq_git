@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+
+<div class="feed-wrapper">
+    <div class="user-profile-tab">
+        <div style="display: flex;">
+            <div>
+                <i class="far fa-user"></i>
+            </div>
+            <div>
+                <h3>{{user.name}}</h3>
+                <p>{{user.username}}</p>
+            </div>
+        </div>
+        <button id="ask_question_button" class="ask_question_button">Answer</button>
+        <button id="topic_button" class="topic_button">Topic  +</button>
+    </div>
+    <div class="feed-list">
+        <h1>Q. {{question.content}} ?</h1>
+        <div class="question-detail-feed">
+            <p><span>asked </span>{{question.asked}}</p>
+            <p><span>active </span>{{question.active}}</p>
+            <p><span>viewed </span>{{question.view}}</p>
+        </div>
+
+        <div class="answers">
+            {%for answer in answers%}
+                <div class="answer">
+                    <h4>Ans. {{answer.content}}</h4>
+                </div>
+                <div class="answer-box">
+                    <p><span>Answered </span>{{answer.answered}}</p>
+                    <p><span>Vote </span>{{answer.vote}}</p>
+                    <p><span>By </span>{{answer.person.name}}</p>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+    <div class="extras">
+        <p>about?</p>
+    </div>
+</div>
+<div id="cover" class="cover"></div>
+<div id="asking_box" class="asking_box">
+    <h2>Answer</h2>
+    <form action="/answer/{{question.id}}/  " method="POST">{% csrf_token %}
+        <input type="text" class="input" placeholder="Enter Your Answer.." name="answer" required>
+        <button class="button">Send <i class="fas fa-paper-plane"></i></button>
+    </form>
+</div>
+<div id="topic_box" class="topic_box">
+    <h2 class="topic_box_head">Topics</h2>
+    <div class="topic-list">
+        {%for topic in topics%}
+        <a style="color: white;" href="/topicFeed/{{topic.id}}/">
+            <div class="topic">
+                {{topic.name}}
+            </div>
+        </a>
+        {%endfor%}
+    </div>
+    <form action="/addTopic/" method="POST">{% csrf_token %}
+        <input type="text" class="input" name="topic" placeholder="Add New Topic..">
+        <button class="button">Add Topic</button>
+    </form>
+</div>
+
+<script>
+    var cover = document.getElementById('cover')
+    var askquestion = document.getElementById('ask_question_button')
+    var askingbox = document.getElementById('asking_box')
+    var topicbox = document.getElementById('topic_box')
+    var topicbutton = document.getElementById('topic_button')
+    topicbutton.addEventListener('click',()=>{
+        topicbox.style.display = 'block';
+        cover.style.display = 'block';
+    })
+    cover.addEventListener('click',()=>{
+        cover.style.display = 'none';
+        askingbox.style.display = 'none'; 
+        topicbox.style.display = 'none';
+
+    })
+    askquestion.addEventListener('click',()=>{
+        cover.style.display = 'block';
+        askingbox.style.display = 'block'; 
+    })
+
+    window.onload = ()=>{
+        user_profile_tab.style.display = 'none'
+        cover.style.display = 'none';
+        askingbox.style.display = 'none'; 
+        topicbox.style.display = 'none';
+        notice.style.display = 'none'
+
+    }
+</script>
+{%endblock%}

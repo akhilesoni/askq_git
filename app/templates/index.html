@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="introduction">
+    <h1>Welcome to Your <br> asking journey !</h1>
+    <p>AskQ is Questioning platform helping <br> people to solve their problems</p>
+    <button id="gotologin" class="go-to-login">Login</button>
+    <button id="gotosignup" class="go-to-signup">Signup</button>
+</div>
+
+<div class="app-tile">
+    <img class="app-image" src="{% static 'askqApp.png' %}" alt="">
+</div>
+<div id="cover" class="cover"></div>
+<div id="forms" class="forms">
+    <div id="login-form" class="login-form">
+        <h2>Welcome Back!</h2>
+        <p class="notice">{{notice}}</p>
+        <form action="/login/" method="POST">{% csrf_token %}
+            <input type="text" class="input" placeholder="Username" name="username" required>
+            <input type="password" class="input" placeholder="Password" name="password" required>
+            <button id="form-login-button" class="button">Login</button>
+        </form>
+        <p id="change-to-signup">Create a account</p>
+    </div>
+    <div id="signup-form" class="signup-form">
+        <h2>Create Account</h2>
+        <p class="notice">{{notice}}</p>
+        <form action="/signup/" method="POST">{% csrf_token %}
+            <input type="text" class="input" placeholder="Name" name="name" required>
+            <input type="text" class="input" placeholder="Username" name="username" required>
+            <input type="password" class="input" placeholder="Password" name="password" required>
+            <button id="form-signup-button" class="button">Signup</button>
+        </form>
+        <p id="change-to-login">Already have a account? Login</p>
+    </div>
+</div>
+
+<script>
+
+    //login form responsive
+    var forms = document.getElementById('forms');
+    var signup_form = document.getElementById('signup-form');
+    var login_form = document.getElementById('login-form');
+    var cts = document.getElementById('change-to-signup');
+    var ctl = document.getElementById('change-to-login');
+    ctl.addEventListener('click',()=>{
+        login_form.style.display = 'block';
+        signup_form.style.display = 'none';
+    })
+    cts.addEventListener('click',()=>{
+        login_form.style.display = 'none';
+        signup_form.style.display = 'block';
+    });
+
+    //cover phase
+    var gotologin = document.getElementById('gotologin');
+    var gotosignup = document.getElementById('gotosignup');
+    var cover = document.getElementById('cover');
+    cover.addEventListener('click',()=>{
+        cover.style.display = 'none';
+        forms.style.display = 'none';
+        login_form.style.display = 'none';
+        signup_form.style.display = 'none';
+    });
+
+    gotologin.addEventListener('click',()=>{
+        cover.style.display = 'block';
+        forms.style.display = 'block';
+        login_form.style.display = 'block';
+
+    });
+
+    gotosignup.addEventListener('click',()=>{
+        cover.style.display = 'block';
+        forms.style.display = 'block';
+        signup_form.style.display = 'block';
+
+    })
+ 
+    window.onload = ()=>{
+        cover.style.display = 'none';
+        forms.style.display = 'none';
+        login_form.style.display = 'none';
+        signup_form.style.display = 'none';
+        user_profile_tab.style.display = 'none'
+        notice.style.display = 'none'
+    }
+ 
+    anime({
+        targets:'.app-image',
+        opacity:[0,1],
+        translateY:[200,0],
+        duration:600,
+        loop:false,
+        easing:'linear',
+        autoplay:true
+    })
+
+    anime({
+        targets:'.introduction',
+        opacity:[0,1],
+        delay:200,
+        translateX:[-200,0],
+        duration:600,
+        loop:false,
+        easing:'linear',
+        autoplay:true
+    })
+
+
+
+</script>
+
+{%endblock%}

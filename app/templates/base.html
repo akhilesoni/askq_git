@@ -1,0 +1,57 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            askq
+        </title>
+        {%load static%}
+        <link rel="shortcut icon" href="{%static 'askq_icon.png'%}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.js"></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    </head>
+    <body>
+
+        <div class="navbar">
+            <div class="logo"><h2>AskQ</h2></div>
+            <ul class="menu">
+                <a href="/feed/"><li class="far fa-file-alt"></li></a>
+                <li id="user_profile_button" class="far fa-user-circle"></li>
+                <a href=""><li class="far fa-bell"></li></a>
+                <a href=""><li class="far fa-sun"></li></a>
+            </ul>
+        </div>
+
+        <div id="user_profile_tab" class="user_profile_tab">
+            <img src="{%static 'smiling-baby.png'%}" alt="">
+            <h2>{{user.name}}</h2>
+            <p>{{user.username}}</p>
+        </div>
+    
+       {%block content%}
+       {%endblock%}
+       <div id="notice" class="notice">
+        completed
+        </div>
+       <script>
+        var notice = document.getElementById('notice');
+        var user_profile_button = document.getElementById('user_profile_button');
+        var cover = document.getElementById('cover');
+        var user_profile_tab = document.getElementById('user_profile_tab');
+        user_profile_button.addEventListener('click',()=>{
+            user_profile_tab.style.display = 'block';
+            cover.style.display = 'block';
+        })
+
+        cover.addEventListener('click',()=>{
+            user_profile_tab.style.display = 'none';
+            cover.style.display = 'none';
+        })
+
+    
+    </script>
+    </body>
+</html>

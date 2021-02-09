@@ -1,0 +1,1 @@
+web: gunicorn askq.wsgi --log-file -

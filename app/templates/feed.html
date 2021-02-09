@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+
+<div class="feed-wrapper">
+    <div class="user-profile-tab">
+        <div style="display: flex;">
+            <div>
+                <i class="far fa-user"></i>
+            </div>
+            <div>
+                <h3>{{user.name}}</h3>
+                <p>{{user.username}}</p>
+            </div>
+        </div>
+        <button id="ask_question_button" class="ask_question_button">Ask Question</button>
+        <button id="topic_button" class="topic_button">Topic  +</button>
+    </div>
+    <div class="feed-list">
+        <h1>Top Questions</h1>
+        {%for question in questions%}
+        <div class="feed">
+            <a href="/question/{{question.id}}/">
+                <h2>&#10148; {{question.content}}</h2>
+            </a>
+            <div class="feed-detail-wrapper">
+                <p>Answers</p>
+                <p>{{question.view}}  Views</p>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    <div class="extras">
+        <p>about?</p>
+    </div>
+</div>
+<div id="cover" class="cover"></div>
+<div id="asking_box" class="asking_box">
+    <h2>Ask Question</h2>
+    <form action="/addQuestion/" method="POST">{% csrf_token %}
+        <input type="text" class="input" placeholder="Ask Your Question..." name="question" required>
+        <select class="input" name="topic" id="topic">
+            {%for topic in topics%}
+            <option value={{topic.id}}>{{topic.name}}</option>
+            {%endfor%}
+          </select>
+        <button id="topic_add_button" class="button">Ask <i class="fas fa-paper-plane"></i></button>
+    </form>
+</div>
+<div id="topic_box" class="topic_box">
+    <h2 class="topic_box_head">Topics</h2>
+    <div class="topic-list">
+        {%for topic in topics%}
+        <a style="color: white;" href="/topicFeed/{{topic.id}}/">
+            <div class="topic">
+                {{topic.name}}
+            </div>
+        </a>
+        {%endfor%}
+    </div>
+    <form action="/addTopic/" method="POST">{% csrf_token %}
+        <input type="text" class="input" name="topic" placeholder="Add New Topic..">
+        <button class="button">Add Topic</button>
+    </form>
+</div>
+
+<script>
+    var cover = document.getElementById('cover')
+    var askquestion = document.getElementById('ask_question_button')
+    var askingbox = document.getElementById('asking_box')
+    var topicbox = document.getElementById('topic_box')
+    var topicbutton = document.getElementById('topic_button')
+    topicbutton.addEventListener('click',()=>{
+        topicbox.style.display = 'block';
+        cover.style.display = 'block';
+    })
+    cover.addEventListener('click',()=>{
+        cover.style.display = 'none';
+        askingbox.style.display = 'none'; 
+        topicbox.style.display = 'none';
+
+    })
+    askquestion.addEventListener('click',()=>{
+        cover.style.display = 'block';
+        askingbox.style.display = 'block'; 
+    })
+
+    window.onload = ()=>{
+        user_profile_tab.style.display = 'none'
+        cover.style.display = 'none';
+        askingbox.style.display = 'none'; 
+        topicbox.style.display = 'none';
+        notice.style.display = 'none'
+    }
+</script>
+{%endblock%}

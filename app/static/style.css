@@ -1,0 +1,605 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+  
+}
+
+a{
+    text-decoration: none;
+}
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    border-top: 5px solid purple;
+    background-color: white;
+    overflow: hidden;
+    z-index: 99999;
+    box-shadow: 0 0px 60px rgba(0, 0, 0, 0.103);
+}
+.navbar .logo{
+    position: fixed;
+    top: 10px;
+    left: 0;
+}
+.navbar .logo h2{
+    margin: 3px 10px;
+}
+
+.navbar .menu{
+    position: fixed;
+    right: 0;
+    margin: 15px;
+}
+.navbar .menu li{
+    margin: 0 10px;
+    color: black;
+    font-size: 20px;
+}
+
+/*login signup forms css*/
+
+.forms{
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    margin-left: -150px;
+    width: 300px;
+    background-color: white;
+    
+}
+.forms .notice{
+    color: red;
+    font-size: large;
+}
+
+.forms .input{
+    width: 90%;
+    margin: 10px 5%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(194, 194, 194);
+    outline: none;
+}
+.forms p{
+    color: purple;
+    cursor:pointer;
+}
+.forms h2,.forms p{
+    text-align: center;
+}
+
+.forms .login-form{
+    position: absolute;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.164);
+}
+
+.forms .signup-form{
+    position: absolute;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.164);
+}
+
+.forms .button{
+    font-family: 'Montserrat';
+    font-weight: 600;
+    width: 90%;
+    margin: 10px 5%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: purple;
+    color: white;
+    border: 2px solid purple;
+    outline: none;
+}
+
+.cover{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.705);
+}
+
+/* index page css */
+
+.introduction{
+    margin-top: 40px;
+    padding: 30px;
+    position: absolute;
+    top: 20%;
+    width: fit-content;
+}
+
+.introduction h1{
+    stroke-width: 2px;
+    stroke: black;
+    font-size: 40px;
+}
+.introduction p{
+    color: rgb(70, 70, 70);
+}
+
+.introduction button{
+    padding: 10px 20px;
+    border: 0;
+    background-color: purple;
+    color: white;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-right:20px ;
+    transition: 0.3s;
+    border: 2px solid purple;
+    outline: none;
+}
+.introduction button:hover{
+    background-color: white;
+    color: purple;
+    border: 2px solid purple;
+}
+
+/*app tile css*/
+
+.app-tile{
+   height: 500px;
+   position: absolute;
+   right: 0;
+   overflow: hidden;
+    top: 10%;
+   border-bottom: 4px solid purple;
+}
+
+/*feed csss*/
+
+.feed-wrapper{
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.feed-wrapper .user-profile-tab{
+    width: 15%;
+    padding: 10px;
+    background-color: white;
+    border-radius:5px;
+    height: fit-content;
+}
+.feed-wrapper .ask_question_button{
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    border: 2px solid purple;
+    color: purple;
+    background-color: white;
+    transition: 0.3s;
+    font-family: 'Montserrat';
+    border-radius: 5px;
+    outline: none;
+}
+
+.feed-wrapper .topic_button{
+    width: 90%;
+    margin: 20px auto;
+    padding: 10px;
+    color: purple;
+    transition: 0.3s;
+    border: 0;
+    font-size: 20px;
+    text-align: left;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    background-color: white;
+    outline: none;
+}
+.feed-wrapper .topic_button:hover{
+    background-color: rgb(240, 240, 240);
+}
+.feed-wrapper .ask_question_button:hover{
+   background-color: purple;
+   color: white;
+}
+.feed-wrapper .user-profile-tab i{
+    margin: 20px;
+    font-size: 40px;
+}
+.feed-wrapper .feed a{
+ color: black;
+}
+.feed-wrapper .user-profile-tab h3{
+    margin-bottom: 0;
+}
+.feed-wrapper .user-profile-tab p{
+    margin-top: 0;
+    font-size: 15px;
+    color: rgb(99, 99, 99);
+}
+.feed-wrapper .feed-list{
+    width: 50%;
+
+    background-color: white;
+
+    border-left: 1px solid rgba(128, 0, 128, 0.425);
+    border-right: 1px solid rgba(128, 0, 128, 0.425);
+
+}
+.feed-wrapper .feed-list .feed{
+    padding: 20px;
+    border-top: 1px solid rgba(128, 0, 128, 0.425);
+
+}
+.feed-wrapper .feed-list h1{
+    padding: 10px;
+    margin: 0;
+}
+
+.feed-wrapper .feed-list .feed h2{
+    margin: 0;
+}
+.feed-wrapper .feed-list .feed p{
+    margin: 0;
+}
+
+.feed-wrapper .feed-list .feed .feed-detail-wrapper{
+    display: flex;
+    margin-top: 10px;
+    color: purple;
+}
+
+.feed-wrapper .feed-list .feed .feed-detail-wrapper p{
+   margin-right: 20px;
+}
+
+.feed-wrapper .extras{
+    width: 20%;
+    text-align: left;
+    padding: 10px;
+    margin: 10px;
+    height: fit-content;
+    background-color: white;
+    border-radius: 5px;
+}
+
+/*asking box csss*/
+
+.asking_box{
+    position: fixed;
+    top: 20%;
+    width: 400px;
+    left: 50%;
+    margin-left:-200px ;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.123);
+}
+
+.asking_box h2{
+    text-align: center;
+}
+
+.asking_box select > option{
+    padding: 10px;
+    height: 50%;
+}
+.asking_box .input{
+    width: 90%;
+    margin: 10px 5%;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid rgb(94, 94, 94);
+    font-family: 'Montserrat';
+}
+
+.asking_box .button{
+    width: 90%;
+    margin: 10px 5%;
+    padding: 10px;
+    color: white;
+    background-color: purple;
+    border: 2px solid purple;
+    border-radius: 5px;
+    outline: none;
+    font-size: 20px;
+    transition: 0.3s;
+}
+.asking_box .button:hover{
+    color: purple;
+    background-color: white;    
+}
+
+
+/*topic box css*/
+
+.topic_box{
+    position: fixed;
+    top: 20%;
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    left: 50%;
+    margin-left:-200px ;
+    box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.103);
+}
+
+.topic_box .input{
+    width: 90%;
+    margin: 10px 5%;
+    padding: 10px;
+    border: 1px solid rgb(182, 182, 182);
+    border-radius: 5px;
+}
+
+.topic_box .topic-list{
+    width: 90%;
+    margin: 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.topic_box .topic-list .topic{
+    width: fit-content;
+    margin: 5px ;
+    padding: 5px;
+    height: fit-content;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(161, 93, 161);
+}
+.topic_box .button{
+    width: 90%;
+    margin: 10px 5%;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Montserrat';
+    background-color: purple;
+    color: white;
+    border: 2px solid purple;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.topic_box .button:hover{
+
+    background-color: rgb(255, 255, 255);
+    color: purple;
+ 
+}
+.topic_box .topic_box_head{
+  text-align: center;
+}
+
+
+/* user profile tab css */
+
+.user_profile_tab{
+    position: fixed;
+    right: 2.5%;
+    top: 10%;
+    overflow: hidden;
+    z-index: 99999;
+    width: 200px;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.247);
+}
+
+.user_profile_tab img{
+    width: 50px;
+    margin: 20px 0 10px 0;
+    height: 50px;
+}
+.user_profile_tab p{
+    padding: 0 0 20px 0;
+    background-color: purple;
+    margin: 0;
+    color: white;
+}
+
+.user_profile_tab h2{
+    margin: 10px 0 0 0;
+    padding-top: 10px;
+    background-color: purple;
+    color: white;
+}
+
+
+/* topic feed csss */
+.topic-feed-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top:60px ;
+}
+
+.topic-feed-wrapper .topic-list{
+    padding: 40px 20px 20px 20px;
+
+}
+.topic-feed-wrapper .topic-list .topic{
+    padding: 10px;
+    background-color: purple;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: max-content;
+}
+
+.topic-feed-wrapper .feed-list{
+    padding:20px ;
+    width: 70%;
+}
+
+.topic-feed-wrapper .feed-list .feed a{
+    color: black;
+}
+.topic-feed-wrapper .feed-list .feed{
+
+    padding: 20px;
+    border-top: 1px solid rgba(128, 0, 128, 0.425);
+}
+
+.topic-feed-wrapper .feed-list .feed h2{
+    margin: 0;
+}
+.topic-feed-wrapper .feed-list .feed p{
+    margin: 0;
+    color: purple;
+}
+
+.topic-feed-wrapper.feed-list .feed .feed-detail-wrapper{
+    display: flex;
+    margin-top: 10px;
+    color: purple;
+}
+
+.topic-feed-wrapper .extra{
+    text-align: center;
+}
+
+.topic-feed-wrapper .feed-list .feed .feed-detail-wrapper p{
+   margin-right: 20px;
+}
+
+
+.question-detail-feed{
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+.question-detail-feed p{
+    font-size: 15px;
+    margin-right: 20px;
+    font-weight: 600;
+}
+
+.question-detail-feed p span{
+    font-weight: 100;
+}
+
+.answers{
+    padding: 20px;
+}
+.answers .answer{
+    border-top: 1px solid rgb(192, 192, 192);
+}
+
+.feed-list .answers .answer p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+.answers .answer p span{
+    font-weight: 600;
+}
+
+
+
+@media only screen and (max-width:400px){
+    .introduction{
+        padding: 20px;
+        top: 10%;
+
+    }
+
+    .forms{
+        width: 95%;
+        margin: 2.5%;
+        left: 0;
+    }
+
+    .app-tile{
+        width: 100%;
+        border: 0;
+    }
+    .app-tile img{
+        width: 100%;
+        border-bottom: 4px solid purple;
+    }
+    .asking_box{
+        width: 97%;
+        margin: 10px 1.5%;
+        left: 0;
+    }
+
+    .topic_box{
+        width: 90%;
+        left: 5%;
+        margin: 0;
+    }
+
+    .topic-feed-wrapper .extra{
+        width: 100%;
+    }
+    .user_profile_tab{
+        position: fixed;
+        right: 5%;
+        width: 90%;
+        
+    }
+    .topic-feed-wrapper .feed-list{
+        
+        width: 100%;
+    }
+
+    .topicfeedcover{
+        display: none;
+    }
+    .topic-feed-wrapper .topic-list .topic{
+        margin-right: 10px;
+    }
+    .topic-feed-wrapper .topic-list::-webkit-scrollbar {
+        display: none;
+    }
+    .topic-feed-wrapper .topic-list {
+        display: flex;
+        width: 100%;
+        overflow-x: scroll;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;
+    }
+
+
+}
+
+
+@media only screen and (max-width:800px){
+    .app-tile{
+        top: 100%;
+        
+    }
+
+    .feed-wrapper .user-profile-tab{
+        width: 95%;
+        margin: 10px 2.5%;
+
+    }
+    .feed-wrapper .feed-list{
+        width: 100%
+
+    }
+    
+
+    .feed-wrapper .extras{
+        width: 95%;
+        margin: 10px 2.5%;
+        text-align: left;
+    }
+
+    .topic_box{
+        width: 95%;
+        margin: 0;
+        left: 2.5%;
+    }
+  
+    
+}
+
+

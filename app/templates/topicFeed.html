@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block content%}
+
+<div class="topic-feed-wrapper">
+    <div class="topic-list">
+        {%for topic in topics%}
+        <a href="/topicFeed/{{topic.id}}/">
+            <div class="topic">
+                {{topic.name}}
+            </div>
+        </a>
+        {%endfor%}
+    </div>
+    <div class="feed-list">
+        <h2>Topic -> {{topic_id.name}}</h2>
+        {%for question in questions%}
+        <div class="feed">
+            <a href="">
+                <h2>&#10148; {{question.content}}</h2>
+            </a>
+            <div class="feed-detail-wrapper">
+                <p>Answers</p>
+                <p>{{question.view}}  Views</p>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    <div class="extra" style="text-align: center;">
+        <p style="text-align: center;">notification</p>
+    </div>
+</div>
+<div class="cover topicfeedcover" id="cover"></div>
+<script>
+    var user_profile_tab = document.getElementById('user_profile_tab')
+    window.onload = ()=>{
+        cover.style.display = 'none'
+        user_profile_tab.style.display = 'none'
+    }
+</script>
+{%endblock%}
